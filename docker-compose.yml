@@ -1,0 +1,15 @@
+volumes:
+  lore_data:
+    name: "lore_data"
+
+services:
+  lore-db:
+    image: 'postgres:latest'
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - lore_data:/var/lib/postgresql/data
